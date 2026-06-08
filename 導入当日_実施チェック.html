@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>浩友工業 Codex導入 当日実施チェック</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5f6f7c;
+      --line: #d8dee4;
+      --paper: #ffffff;
+      --soft: #f5f7f9;
+      --blue: #1f6feb;
+      --green: #1a7f64;
+      --amber: #9a6700;
+      --red: #b42318;
+      --shadow: 0 10px 30px rgba(23, 32, 42, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Yu Gothic UI", "Meiryo", sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+      line-height: 1.65;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 22px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 22px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button, .link-button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    button.danger {
+      color: var(--red);
+      border-color: #f3b7b2;
+      background: #fff7f6;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 22px 48px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    nav {
+      position: sticky;
+      top: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 3px 10px rgba(23, 32, 42, 0.04);
+    }
+
+    nav a {
+      display: block;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    nav a:hover { background: #eef4ff; }
+
+    .progress-card {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .bar {
+      height: 10px;
+      background: #e6ebf0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--green);
+      transition: width 0.2s ease;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(23, 32, 42, 0.04);
+    }
+
+    .section-head {
+      padding: 14px 16px;
+      background: #fbfcfd;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    .badge.green { background: var(--green); }
+    .badge.amber { background: var(--amber); }
+    .badge.red { background: var(--red); }
+
+    h2 {
+      margin: 0;
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    .section-body { padding: 14px 16px 16px; }
+
+    .check-row {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .check-row + .check-row { margin-top: 8px; }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--green);
+    }
+
+    .check-row label {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .hint {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      font: inherit;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 94px;
+      resize: vertical;
+    }
+
+    .memo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .memo-block label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .notice {
+      border-left: 5px solid var(--amber);
+      background: #fff8e6;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .notice.red {
+      border-left-color: var(--red);
+      background: #fff1f0;
+    }
+
+    .notice.green {
+      border-left-color: var(--green);
+      background: #eef8f4;
+    }
+
+    .summary-box {
+      white-space: pre-wrap;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 160px;
+      font-family: Consolas, "Yu Gothic UI", monospace;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, main {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+      }
+
+      .memo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div>
+        <h1>浩友工業<br>Codex導入 当日実施チェック</h1>
+        <p class="lead">当日の導入手順を見ながら、チェック・メモ・作業ログ作成まで行うためのページです。入力内容はこのブラウザに自動保存されます。</p>
+      </div>
+      <img src="assets/codex-onboarding-hero.png" alt="小規模事務所でCodex導入を行うイメージ">
+    </div>
+    <div class="topbar">
+      <button class="primary" id="exportMarkdown">作業ログMarkdownを作成</button>
+      <button id="copySummary">作業ログをコピー</button>
+      <button id="printPage">印刷</button>
+      <button class="danger" id="resetAll">チェックとメモをリセット</button>
+      <a class="link-button" href="index.html">同行者向けガイドへ</a>
+    </div>
+  </header>
+
+  <main>
+    <nav>
+      <a href="#basic">基本情報</a>
+      <a href="#hearing">1. 業務ヒアリング</a>
+      <a href="#safety">2. 安全設定</a>
+      <a href="#folders">3. フォルダ確認</a>
+      <a href="#agents">4. AGENTS.md</a>
+      <a href="#remote">5. リモート保守</a>
+      <a href="#test">6. 実業務テスト</a>
+      <a href="#finish">7. 完了確認</a>
+      <a href="#summary">作業ログ</a>
+      <div class="progress-card">
+        <div class="progress-label"><span>進捗</span><strong id="progressText">0%</strong></div>
+        <div class="bar"><span id="progressBar"></span></div>
+      </div>
+    </nav>
+
+    <div>
+      <section id="basic">
+        <div class="section-head"><div class="badge">0</div><h2>基本情報</h2></div>
+        <div class="section-body">
+          <div class="memo-grid">
+            <div class="memo-block"><label for="date">日付</label><input id="date" type="text" placeholder="例: 2026-06-09"></div>
+            <div class="memo-block"><label for="operator">作業者</label><input id="operator" type="text" placeholder="例: 青木"></div>
+            <div class="memo-block"><label for="user">利用者・対応者</label><input id="user" type="text" placeholder="例: 事務担当者"></div>
+            <div class="memo-block"><label for="pc">対象PC</label><input id="pc" type="text" placeholder="例: 浩友工業 事務PC"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="hearing">
+        <div class="section-head"><div class="badge green">1</div><h2>業務ヒアリング</h2></div>
+        <div class="section-body">
+          <div class="notice green">業務内容は決め打ちせず、まず聞き取る。最初に効率化する業務は1つに絞る。</div>
+          <div data-checklist>
+            <div class="check-row"><input id="c1" type="checkbox"><div><label for="c1">導入目的を説明した</label><p class="hint">Codexで事務作業を補助し、既存業務を壊さないことを説明する。</p></div></div>
+            <div class="check-row"><input id="c2" type="checkbox"><div><label for="c2">事務員さんの主な業務を確認した</label><p class="hint">毎日・毎週・毎月の業務を聞く。</p></div></div>
+            <div class="check-row"><input id="c3" type="checkbox"><div><label for="c3">よく使うメール・Excel・見積書を確認した</label><p class="hint">保存場所、頻度、困りごとを確認する。</p></div></div>
+            <div class="check-row"><input id="c4" type="checkbox"><div><label for="c4">最初にCodexで効率化する業務を1つ決めた</label><p class="hint">当日は小さく試せる業務にする。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="mainWorks">主な業務</label><textarea id="mainWorks" placeholder="例: 見積作成、請求確認、メール返信、Excel転記"></textarea></div>
+            <div class="memo-block"><label for="firstTarget">最初に効率化する業務</label><textarea id="firstTarget" placeholder="当日試す業務を1つ記録"></textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety">
+        <div class="section-head"><div class="badge red">2</div><h2>安全設定</h2></div>
+        <div class="section-body">
+          <div class="notice red">パスワード、APIキー、トークン、認証情報はCodexに入力しない。</div>
+          <div data-checklist>
+            <div class="check-row"><input id="c5" type="checkbox"><div><label for="c5">`Improve the model for everyone` をオフにした</label><p class="hint">個人プラン利用のため、最初に確認する。</p></div></div>
+            <div class="check-row"><input id="c6" type="checkbox"><div><label for="c6">MFA・パスキーの設定状況を確認した</label><p class="hint">OpenAI、Google、GitHub、Microsoftを確認。</p></div></div>
+            <div class="check-row"><input id="c7" type="checkbox"><div><label for="c7">扱ってよい情報・扱わない情報を説明した</label><p class="hint">業務情報は扱ってよいが、認証情報は扱わない。</p></div></div>
+            <div class="check-row"><input id="c8" type="checkbox"><div><label for="c8">メール送信・削除・共有変更は人間確認にした</label><p class="hint">Codexは文案作成や整理までを基本にする。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="securityMemo">安全設定メモ</label><textarea id="securityMemo" placeholder="設定状況や未確認事項"></textarea></div>
+            <div class="memo-block"><label for="doNotHandle">扱わない情報</label><textarea id="doNotHandle">パスワード、APIキー、トークン、認証情報</textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="folders">
+        <div class="section-head"><div class="badge amber">3</div><h2>フォルダ確認</h2></div>
+        <div class="section-body">
+          <div class="notice">既存フォルダ・ファイルは読み込んでよい。ただし、構成を大きく変えたり、既存ファイルを別物に書き換えたりしない。</div>
+          <div data-checklist>
+            <div class="check-row"><input id="c9" type="checkbox"><div><label for="c9">主要フォルダ構成を確認した</label><p class="hint">Documents、Desktop、Google Driveなど。</p></div></div>
+            <div class="check-row"><input id="c10" type="checkbox"><div><label for="c10">触ってよい場所を決めた</label><p class="hint">Codex作業用、Obsidian、Drive作業対象など。</p></div></div>
+            <div class="check-row"><input id="c11" type="checkbox"><div><label for="c11">触ってはいけない場所を決めた</label><p class="hint">会計、給与、契約、バックアップなど。</p></div></div>
+            <div class="check-row"><input id="c12" type="checkbox"><div><label for="c12">アーカイブ先を決めた</label><p class="hint">削除せず、まずアーカイブへ移動する。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="allowedFolders">触ってよい場所</label><textarea id="allowedFolders"></textarea></div>
+            <div class="memo-block"><label for="forbiddenFolders">触ってはいけない場所</label><textarea id="forbiddenFolders"></textarea></div>
+            <div class="memo-block"><label for="archiveFolder">アーカイブ先</label><textarea id="archiveFolder"></textarea></div>
+            <div class="memo-block"><label for="folderMemo">フォルダ確認メモ</label><textarea id="folderMemo"></textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="agents">
+        <div class="section-head"><div class="badge">4</div><h2>AGENTS.md設定</h2></div>
+        <div class="section-body">
+          <div data-checklist>
+            <div class="check-row"><input id="c13" type="checkbox"><div><label for="c13">客先用AGENTS.mdを作成した</label><p class="hint">テンプレートを客先フォルダに合わせて編集する。</p></div></div>
+            <div class="check-row"><input id="c14" type="checkbox"><div><label for="c14">禁止コマンドを確認した</label><p class="hint">`irm ... | iex`、`curl ... | powershell` など。</p></div></div>
+            <div class="check-row"><input id="c15" type="checkbox"><div><label for="c15">悪意あるコード対策を説明した</label><p class="hint">不明なexe、msi、ps1、GitHubコードを不用意に実行しない。</p></div></div>
+            <div class="check-row"><input id="c16" type="checkbox"><div><label for="c16">既存ファイルを別物にしないルールを説明した</label><p class="hint">大きな変更は別名コピーや提案ファイルにする。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="agentsPath">AGENTS.md設置場所</label><textarea id="agentsPath"></textarea></div>
+            <div class="memo-block"><label for="agentsMemo">AGENTS.mdメモ</label><textarea id="agentsMemo"></textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="remote">
+        <div class="section-head"><div class="badge green">5</div><h2>リモート保守</h2></div>
+        <div class="section-body">
+          <div data-checklist>
+            <div class="check-row"><input id="c17" type="checkbox"><div><label for="c17">Chrome Remote Desktopを開いた</label><p class="hint">`https://remotedesktop.google.com/support` を使用。</p></div></div>
+            <div class="check-row"><input id="c18" type="checkbox"><div><label for="c18">一時コード方式を説明した</label><p class="hint">標準は依頼時のみ接続。</p></div></div>
+            <div class="check-row"><input id="c19" type="checkbox"><div><label for="c19">接続テストを行った</label><p class="hint">常設アクセスは無理に設定しない。</p></div></div>
+            <div class="check-row"><input id="c20" type="checkbox"><div><label for="c20">次回保守の連絡方法を決めた</label><p class="hint">電話、メール、チャットなど。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="remoteMemo">リモート保守メモ</label><textarea id="remoteMemo"></textarea></div>
+            <div class="memo-block"><label for="contactWay">次回連絡方法</label><textarea id="contactWay"></textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="test">
+        <div class="section-head"><div class="badge amber">6</div><h2>実業務テスト</h2></div>
+        <div class="section-body">
+          <div class="notice">最初から全部やらない。見積書1件、メール1通、Excel1ファイルなど、小さく試す。</div>
+          <div data-checklist>
+            <div class="check-row"><input id="c21" type="checkbox"><div><label for="c21">実業務を1件選んだ</label><p class="hint">ヒアリングで選んだ業務を使う。</p></div></div>
+            <div class="check-row"><input id="c22" type="checkbox"><div><label for="c22">Codexで読み込み・整理を試した</label><p class="hint">見積書、メール、Excelなど。</p></div></div>
+            <div class="check-row"><input id="c23" type="checkbox"><div><label for="c23">出力結果を利用者と確認した</label><p class="hint">誤り、使いやすさ、不安点を確認。</p></div></div>
+            <div class="check-row"><input id="c24" type="checkbox"><div><label for="c24">次回改善する点を記録した</label><p class="hint">プロンプト、保存場所、手順など。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="testWork">試した業務</label><textarea id="testWork"></textarea></div>
+            <div class="memo-block"><label for="testResult">結果・反応</label><textarea id="testResult"></textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="finish">
+        <div class="section-head"><div class="badge green">7</div><h2>完了確認</h2></div>
+        <div class="section-body">
+          <div data-checklist>
+            <div class="check-row"><input id="c25" type="checkbox"><div><label for="c25">作業ログを作成した</label><p class="hint">このページ下部の作業ログを使う。</p></div></div>
+            <div class="check-row"><input id="c26" type="checkbox"><div><label for="c26">未完了事項を記録した</label><p class="hint">今日できなかったことを明確にする。</p></div></div>
+            <div class="check-row"><input id="c27" type="checkbox"><div><label for="c27">次回対応を決めた</label><p class="hint">リモート保守か再訪問か。</p></div></div>
+            <div class="check-row"><input id="c28" type="checkbox"><div><label for="c28">利用者に基本操作を説明した</label><p class="hint">最初に使う業務だけ説明する。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="todo">未完了事項</label><textarea id="todo"></textarea></div>
+            <div class="memo-block"><label for="nextAction">次回対応</label><textarea id="nextAction"></textarea></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary">
+        <div class="section-head"><div class="badge">8</div><h2>作業ログ</h2></div>
+        <div class="section-body">
+          <div class="notice green">「作業ログMarkdownを作成」を押すと、ここに当日の記録がまとまります。コピーしてObsidianやGitHubに残せます。</div>
+          <div id="summaryBox" class="summary-box"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const storageKey = "koyu-codex-onboarding-check-v1";
+    const fields = [...document.querySelectorAll("input[type='text'], textarea")];
+    const checks = [...document.querySelectorAll("input[type='checkbox']")];
+    const summaryBox = document.getElementById("summaryBox");
+    const progressText = document.getElementById("progressText");
+    const progressBar = document.getElementById("progressBar");
+
+    function todayLocal() {
+      const date = new Date();
+      const yyyy = date.getFullYear();
+      const mm = String(date.getMonth() + 1).padStart(2, "0");
+      const dd = String(date.getDate()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function loadState() {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+      fields.forEach((field) => {
+        if (saved[field.id] !== undefined) field.value = saved[field.id];
+      });
+      checks.forEach((check) => {
+        if (saved[check.id] !== undefined) check.checked = saved[check.id];
+      });
+      if (!document.getElementById("date").value) {
+        document.getElementById("date").value = todayLocal();
+      }
+      updateProgress();
+      buildSummary();
+    }
+
+    function saveState() {
+      const data = {};
+      fields.forEach((field) => data[field.id] = field.value);
+      checks.forEach((check) => data[check.id] = check.checked);
+      localStorage.setItem(storageKey, JSON.stringify(data));
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const total = checks.length;
+      const done = checks.filter((check) => check.checked).length;
+      const percent = total ? Math.round(done / total * 100) : 0;
+      progressText.textContent = `${percent}%`;
+      progressBar.style.width = `${percent}%`;
+    }
+
+    function getValue(id) {
+      return document.getElementById(id)?.value.trim() || "";
+    }
+
+    function getCheckedLabels() {
+      return checks.filter((check) => check.checked).map((check) => {
+        const label = document.querySelector(`label[for="${check.id}"]`);
+        return label ? label.textContent.trim() : check.id;
+      });
+    }
+
+    function buildSummary() {
+      const checked = getCheckedLabels();
+      const lines = [
+        "# 浩友工業 Codex導入 作業ログ",
+        "",
+        `- 日付: ${getValue("date")}`,
+        `- 作業者: ${getValue("operator")}`,
+        `- 利用者・対応者: ${getValue("user")}`,
+        `- 対象PC: ${getValue("pc")}`,
+        "",
+        "## 実施チェック",
+        ...checked.map((item) => `- [x] ${item}`),
+        "",
+        "## 主な業務",
+        getValue("mainWorks") || "- 未記入",
+        "",
+        "## 最初に効率化する業務",
+        getValue("firstTarget") || "- 未記入",
+        "",
+        "## 安全設定メモ",
+        getValue("securityMemo") || "- 未記入",
+        "",
+        "## フォルダ確認",
+        `### 触ってよい場所\n${getValue("allowedFolders") || "- 未記入"}`,
+        "",
+        `### 触ってはいけない場所\n${getValue("forbiddenFolders") || "- 未記入"}`,
+        "",
+        `### アーカイブ先\n${getValue("archiveFolder") || "- 未記入"}`,
+        "",
+        "## AGENTS.md",
+        `- 設置場所: ${getValue("agentsPath") || "未記入"}`,
+        getValue("agentsMemo") || "- メモなし",
+        "",
+        "## リモート保守",
+        getValue("remoteMemo") || "- 未記入",
+        "",
+        "## 試した業務",
+        getValue("testWork") || "- 未記入",
+        "",
+        "## 結果・反応",
+        getValue("testResult") || "- 未記入",
+        "",
+        "## 未完了事項",
+        getValue("todo") || "- 未記入",
+        "",
+        "## 次回対応",
+        getValue("nextAction") || "- 未記入"
+      ];
+      const text = lines.join("\n");
+      summaryBox.textContent = text;
+      return text;
+    }
+
+    function downloadMarkdown() {
+      const text = buildSummary();
+      const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `浩友工業_Codex導入作業ログ_${getValue("date") || "today"}.md`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    fields.forEach((field) => {
+      field.addEventListener("input", () => {
+        saveState();
+        buildSummary();
+      });
+    });
+
+    checks.forEach((check) => {
+      check.addEventListener("change", () => {
+        saveState();
+        buildSummary();
+      });
+    });
+
+    document.getElementById("exportMarkdown").addEventListener("click", downloadMarkdown);
+    document.getElementById("copySummary").addEventListener("click", async () => {
+      const text = buildSummary();
+      await navigator.clipboard.writeText(text);
+      alert("作業ログをコピーしました。");
+    });
+    document.getElementById("printPage").addEventListener("click", () => window.print());
+    document.getElementById("resetAll").addEventListener("click", () => {
+      if (!confirm("チェックとメモをすべてリセットしますか？")) return;
+      localStorage.removeItem(storageKey);
+      fields.forEach((field) => field.value = "");
+      checks.forEach((check) => check.checked = false);
+      document.getElementById("date").value = todayLocal();
+      updateProgress();
+      buildSummary();
+    });
+
+    loadState();
+  </script>
+</body>
+</html>
