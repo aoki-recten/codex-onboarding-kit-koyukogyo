@@ -20,6 +20,11 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+      text-size-adjust: 100%;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", "Yu Gothic UI", "Meiryo", sans-serif;
@@ -86,7 +91,13 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
+      min-height: 42px;
+      line-height: 1.25;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     button.primary {
@@ -111,6 +122,8 @@
       gap: 18px;
       align-items: start;
     }
+
+    main > div { min-width: 0; }
 
     nav {
       position: sticky;
@@ -229,6 +242,7 @@
     .check-row label {
       cursor: pointer;
       font-weight: 600;
+      overflow-wrap: anywhere;
     }
 
     .hint {
@@ -239,6 +253,7 @@
 
     textarea, input[type="text"] {
       width: 100%;
+      min-width: 0;
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 10px;
@@ -286,6 +301,8 @@
 
     .summary-box {
       white-space: pre-wrap;
+      overflow-x: auto;
+      overflow-wrap: anywhere;
       background: #f8fafc;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -296,12 +313,35 @@
     }
 
     @media (max-width: 900px) {
-      .hero, main {
+      .hero,
+      main {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 18px;
+      }
+
+      .hero img {
+        max-height: 300px;
+        object-fit: cover;
       }
 
       nav {
         position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+      }
+
+      nav a {
+        min-height: 38px;
+        display: flex;
+        align-items: center;
+      }
+
+      .progress-card {
+        grid-column: 1 / -1;
       }
 
       .memo-grid {
@@ -309,6 +349,114 @@
       }
 
       h1 { font-size: 26px; }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        line-height: 1.58;
+      }
+
+      .hero {
+        padding: 18px 14px 12px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .lead {
+        font-size: 14px;
+      }
+
+      .hero img {
+        aspect-ratio: 16 / 9;
+        max-height: none;
+      }
+
+      .topbar {
+        padding: 10px 14px 14px;
+        gap: 8px;
+      }
+
+      .topbar > * {
+        flex: 1 1 calc(50% - 8px);
+      }
+
+      main {
+        padding: 14px 12px 36px;
+        gap: 12px;
+      }
+
+      nav {
+        padding: 10px;
+      }
+
+      nav a {
+        padding: 8px;
+        font-size: 13px;
+      }
+
+      section {
+        margin-bottom: 12px;
+      }
+
+      .section-head {
+        padding: 12px;
+        align-items: flex-start;
+      }
+
+      .badge {
+        width: 30px;
+        height: 30px;
+      }
+
+      h2 {
+        font-size: 17px;
+      }
+
+      .section-body {
+        padding: 12px;
+      }
+
+      .check-row {
+        grid-template-columns: 26px 1fr;
+        padding: 10px 9px;
+      }
+
+      .hint {
+        font-size: 12.5px;
+      }
+
+      textarea,
+      input[type="text"] {
+        padding: 9px;
+      }
+
+      textarea {
+        min-height: 86px;
+      }
+
+      .summary-box {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topbar > * {
+        flex-basis: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      nav {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      main {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     }
   </style>
 </head>
