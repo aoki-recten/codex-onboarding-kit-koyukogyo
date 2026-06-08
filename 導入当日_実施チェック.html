@@ -334,12 +334,13 @@
     <nav>
       <a href="#basic">基本情報</a>
       <a href="#hearing">1. 業務ヒアリング</a>
-      <a href="#safety">2. 安全設定</a>
-      <a href="#folders">3. フォルダ確認</a>
-      <a href="#agents">4. AGENTS.md</a>
-      <a href="#remote">5. リモート保守</a>
-      <a href="#test">6. 実業務テスト</a>
-      <a href="#finish">7. 完了確認</a>
+      <a href="#install">2. インストール・アカウント</a>
+      <a href="#safety">3. 安全設定</a>
+      <a href="#folders">4. フォルダ確認</a>
+      <a href="#agents">5. AGENTS.md</a>
+      <a href="#remote">6. リモート保守</a>
+      <a href="#test">7. 実業務テスト</a>
+      <a href="#finish">8. 完了確認</a>
       <a href="#summary">作業ログ</a>
       <div class="progress-card">
         <div class="progress-label"><span>進捗</span><strong id="progressText">0%</strong></div>
@@ -377,8 +378,35 @@
         </div>
       </section>
 
+      <section id="install">
+        <div class="section-head"><div class="badge">2</div><h2>インストール・アカウント作成</h2></div>
+        <div class="section-body">
+          <div class="notice">導入当日は「使える状態」まで確認する。新規アカウント作成時は、パスワードをCodexやObsidianに保存せず、利用者管理のパスワード管理ツールに登録する。</div>
+          <div data-checklist>
+            <div class="check-row"><input id="c29" type="checkbox"><div><label for="c29">OpenAI / ChatGPTアカウントを作成またはログインした</label><p class="hint">個人プラン利用。メールアドレス、本人確認、支払い有無を確認する。</p></div></div>
+            <div class="check-row"><input id="c30" type="checkbox"><div><label for="c30">Codexを利用できる状態にした</label><p class="hint">Codexアプリ、CLI、ブラウザ利用など、当日使う形で起動確認する。</p></div></div>
+            <div class="check-row"><input id="c31" type="checkbox"><div><label for="c31">Obsidianをインストールし、vaultを作成または確認した</label><p class="hint">共有、壁打ち、プライベート、アーカイブを分ける前提にする。</p></div></div>
+            <div class="check-row"><input id="c32" type="checkbox"><div><label for="c32">Google Drive for desktopをインストールまたは同期確認した</label><p class="hint">業務ファイル、画像、Excel、共有資料の置き場を確認する。</p></div></div>
+            <div class="check-row"><input id="c33" type="checkbox"><div><label for="c33">Googleアカウントを作成またはログインした</label><p class="hint">DriveとChrome Remote Desktopに使うアカウントを確認する。</p></div></div>
+            <div class="check-row"><input id="c34" type="checkbox"><div><label for="c34">GitHubアカウントを作成またはログインした</label><p class="hint">Markdown管理や導入キット共有に使う。リポジトリは原則privateから始める。</p></div></div>
+            <div class="check-row"><input id="c35" type="checkbox"><div><label for="c35">Git / GitHub CLIのインストール状況を確認した</label><p class="hint">必要な場合だけ導入し、push前は必ず利用者確認にする。</p></div></div>
+            <div class="check-row"><input id="c36" type="checkbox"><div><label for="c36">Microsoft / Outlookアカウントを確認した</label><p class="hint">メール要約、タスク抽出、返信文案作成に使う前提でログイン状態を確認する。</p></div></div>
+            <div class="check-row"><input id="c37" type="checkbox"><div><label for="c37">Chrome Remote Desktopの利用準備を確認した</label><p class="hint">標準は一時コード方式。常設接続は同意と運用ルールがある場合だけ。</p></div></div>
+            <div class="check-row"><input id="c38" type="checkbox"><div><label for="c38">ブラウザ、Office、PDF閲覧ソフトの状態を確認した</label><p class="hint">見積書、Excel、メール添付、画像を開けるか確認する。</p></div></div>
+            <div class="check-row"><input id="c39" type="checkbox"><div><label for="c39">各アプリ連携の同意範囲を確認した</label><p class="hint">Drive、Outlook、GitHubなどは、読み取り・作成・送信・共有変更の境界を確認する。</p></div></div>
+            <div class="check-row"><input id="c40" type="checkbox"><div><label for="c40">新規作成したアカウントと未完了設定を記録した</label><p class="hint">パスワードそのものは記録しない。登録メール、用途、未完了項目だけ残す。</p></div></div>
+          </div>
+          <div class="memo-grid">
+            <div class="memo-block"><label for="accountMemo">アカウント作成・ログインメモ</label><textarea id="accountMemo" placeholder="例: OpenAIは既存アカウントでログイン、GitHubは新規作成予定"></textarea></div>
+            <div class="memo-block"><label for="installMemo">インストール状況メモ</label><textarea id="installMemo" placeholder="例: Obsidian導入済み、Google Drive同期確認済み"></textarea></div>
+            <div class="memo-block"><label for="connectAppsMemo">連携アプリ・同意範囲メモ</label><textarea id="connectAppsMemo" placeholder="例: Outlookは読み取りと文案作成まで。送信は人間確認。"></textarea></div>
+            <div class="memo-block"><label for="pendingSetup">未完了の設定</label><textarea id="pendingSetup" placeholder="例: GitHub MFAを後日設定、Drive共有権限は後日確認"></textarea></div>
+          </div>
+        </div>
+      </section>
+
       <section id="safety">
-        <div class="section-head"><div class="badge red">2</div><h2>安全設定</h2></div>
+        <div class="section-head"><div class="badge red">3</div><h2>安全設定</h2></div>
         <div class="section-body">
           <div class="notice red">パスワード、APIキー、トークン、認証情報はCodexに入力しない。</div>
           <div data-checklist>
@@ -395,7 +423,7 @@
       </section>
 
       <section id="folders">
-        <div class="section-head"><div class="badge amber">3</div><h2>フォルダ確認</h2></div>
+        <div class="section-head"><div class="badge amber">4</div><h2>フォルダ確認</h2></div>
         <div class="section-body">
           <div class="notice">既存フォルダ・ファイルは読み込んでよい。ただし、構成を大きく変えたり、既存ファイルを別物に書き換えたりしない。</div>
           <div data-checklist>
@@ -414,7 +442,7 @@
       </section>
 
       <section id="agents">
-        <div class="section-head"><div class="badge">4</div><h2>AGENTS.md設定</h2></div>
+        <div class="section-head"><div class="badge">5</div><h2>AGENTS.md設定</h2></div>
         <div class="section-body">
           <div data-checklist>
             <div class="check-row"><input id="c13" type="checkbox"><div><label for="c13">客先用AGENTS.mdを作成した</label><p class="hint">テンプレートを客先フォルダに合わせて編集する。</p></div></div>
@@ -430,7 +458,7 @@
       </section>
 
       <section id="remote">
-        <div class="section-head"><div class="badge green">5</div><h2>リモート保守</h2></div>
+        <div class="section-head"><div class="badge green">6</div><h2>リモート保守</h2></div>
         <div class="section-body">
           <div data-checklist>
             <div class="check-row"><input id="c17" type="checkbox"><div><label for="c17">Chrome Remote Desktopを開いた</label><p class="hint">`https://remotedesktop.google.com/support` を使用。</p></div></div>
@@ -446,7 +474,7 @@
       </section>
 
       <section id="test">
-        <div class="section-head"><div class="badge amber">6</div><h2>実業務テスト</h2></div>
+        <div class="section-head"><div class="badge amber">7</div><h2>実業務テスト</h2></div>
         <div class="section-body">
           <div class="notice">最初から全部やらない。見積書1件、メール1通、Excel1ファイルなど、小さく試す。</div>
           <div data-checklist>
@@ -463,7 +491,7 @@
       </section>
 
       <section id="finish">
-        <div class="section-head"><div class="badge green">7</div><h2>完了確認</h2></div>
+        <div class="section-head"><div class="badge green">8</div><h2>完了確認</h2></div>
         <div class="section-body">
           <div data-checklist>
             <div class="check-row"><input id="c25" type="checkbox"><div><label for="c25">作業ログを作成した</label><p class="hint">このページ下部の作業ログを使う。</p></div></div>
@@ -479,7 +507,7 @@
       </section>
 
       <section id="summary">
-        <div class="section-head"><div class="badge">8</div><h2>作業ログ</h2></div>
+        <div class="section-head"><div class="badge">9</div><h2>作業ログ</h2></div>
         <div class="section-body">
           <div class="notice green">「作業ログMarkdownを作成」を押すと、ここに当日の記録がまとまります。コピーしてObsidianやGitHubに残せます。</div>
           <div id="summaryBox" class="summary-box"></div>
@@ -564,6 +592,15 @@
         "",
         "## 最初に効率化する業務",
         getValue("firstTarget") || "- 未記入",
+        "",
+        "## インストール・アカウント作成",
+        `### アカウント作成・ログインメモ\n${getValue("accountMemo") || "- 未記入"}`,
+        "",
+        `### インストール状況メモ\n${getValue("installMemo") || "- 未記入"}`,
+        "",
+        `### 連携アプリ・同意範囲メモ\n${getValue("connectAppsMemo") || "- 未記入"}`,
+        "",
+        `### 未完了の設定\n${getValue("pendingSetup") || "- 未記入"}`,
         "",
         "## 安全設定メモ",
         getValue("securityMemo") || "- 未記入",
