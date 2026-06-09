@@ -535,11 +535,11 @@
             <div class="check-row"><input id="c30" type="checkbox"><div><label for="c30">Codexを利用できる状態にした</label><p class="hint">Codexアプリ、CLI、ブラウザ利用など、当日使う形で起動確認する。</p></div></div>
             <div class="check-row"><input id="c31" type="checkbox"><div><label for="c31">Obsidianをインストールし、vaultを作成または確認した</label><p class="hint">共有、壁打ち、プライベート、アーカイブを分ける前提にする。</p></div></div>
             <div class="check-row"><input id="c32" type="checkbox"><div><label for="c32">Google Drive for desktopをインストールまたは同期確認した</label><p class="hint">業務ファイル、画像、Excel、共有資料の置き場を確認する。</p></div></div>
-            <div class="check-row"><input id="c33" type="checkbox"><div><label for="c33">Googleアカウントを作成またはログインした</label><p class="hint">DriveとChrome Remote Desktopに使うアカウントを確認する。</p></div></div>
+            <div class="check-row"><input id="c33" type="checkbox"><div><label for="c33">Googleアカウントを作成またはログインした</label><p class="hint">Driveに使うアカウントを確認する。</p></div></div>
             <div class="check-row"><input id="c34" type="checkbox"><div><label for="c34">GitHubアカウントを作成またはログインした</label><p class="hint">Markdown管理や導入キット共有に使う。リポジトリは原則privateから始める。</p></div></div>
             <div class="check-row"><input id="c35" type="checkbox"><div><label for="c35">Git / GitHub CLIのインストール状況を確認した</label><p class="hint">必要な場合だけ導入し、push前は必ず利用者確認にする。</p></div></div>
             <div class="check-row"><input id="c36" type="checkbox"><div><label for="c36">Microsoft / Outlookアカウントを確認した</label><p class="hint">メール要約、タスク抽出、返信文案作成に使う前提でログイン状態を確認する。</p></div></div>
-            <div class="check-row"><input id="c37" type="checkbox"><div><label for="c37">Chrome Remote Desktopの利用準備を確認した</label><p class="hint">標準は一時コード方式。常設接続は同意と運用ルールがある場合だけ。</p></div></div>
+            <div class="check-row"><input id="c37" type="checkbox"><div><label for="c37">リモート保守手段を確認した</label><p class="hint">無料候補はRustDeskの有人接続。有償の継続保守候補はSplashtop Remote Support。</p></div></div>
             <div class="check-row"><input id="c38" type="checkbox"><div><label for="c38">ブラウザ、Office、PDF閲覧ソフトの状態を確認した</label><p class="hint">見積書、Excel、メール添付、画像を開けるか確認する。</p></div></div>
             <div class="check-row"><input id="c39" type="checkbox"><div><label for="c39">各アプリ連携の同意範囲を確認した</label><p class="hint">Drive、Outlook、GitHubなどは、読み取り・作成・送信・共有変更の境界を確認する。</p></div></div>
             <div class="check-row"><input id="c40" type="checkbox"><div><label for="c40">新規作成したアカウントと未完了設定を記録した</label><p class="hint">パスワードそのものは記録しない。登録メール、用途、未完了項目だけ残す。</p></div></div>
@@ -608,11 +608,15 @@
       <section id="remote">
         <div class="section-head"><div class="badge green">6</div><h2>リモート保守</h2></div>
         <div class="section-body">
+          <div class="notice">無料で試す場合はRustDeskの有人接続を候補にする。固定パスワード、無人アクセス、自動常駐は当日は設定しない。Chrome Remote DesktopとMicrosoft クイック アシストは短時間補助用にする。</div>
           <div data-checklist>
-            <div class="check-row"><input id="c17" type="checkbox"><div><label for="c17">Chrome Remote Desktopを開いた</label><p class="hint">`https://remotedesktop.google.com/support` を使用。</p></div></div>
-            <div class="check-row"><input id="c18" type="checkbox"><div><label for="c18">一時コード方式を説明した</label><p class="hint">標準は依頼時のみ接続。</p></div></div>
-            <div class="check-row"><input id="c19" type="checkbox"><div><label for="c19">接続テストを行った</label><p class="hint">常設アクセスは無理に設定しない。</p></div></div>
-            <div class="check-row"><input id="c20" type="checkbox"><div><label for="c20">次回保守の連絡方法を決めた</label><p class="hint">電話、メール、チャットなど。</p></div></div>
+            <div class="check-row"><input id="c17" type="checkbox"><div><label for="c17">Windows Homeでは標準リモートデスクトップを使えないことを確認した</label><p class="hint">接続される側がWindows Homeのため、標準RDPのホストにはできない。</p></div></div>
+            <div class="check-row"><input id="c18" type="checkbox"><div><label for="c18">クイック アシストとChrome Remote Desktopは短時間補助用にした</label><p class="hint">長時間作業、継続保守、無人保守の主軸にはしない。</p></div></div>
+            <div class="check-row"><input id="c19" type="checkbox"><div><label for="c19">RustDeskを公式サイトから入手する方針にした</label><p class="hint">`rustdesk.com` から入手し、検索広告や不明な配布サイトは使わない。</p></div></div>
+            <div class="check-row"><input id="c20" type="checkbox"><div><label for="c20">RustDeskの有人接続手順を確認した</label><p class="hint">客先PCのIDとOne Time Passwordを聞き、顧客本人の許可後に接続する。</p></div></div>
+            <div class="check-row"><input id="c41" type="checkbox"><div><label for="c41">固定パスワード・無人アクセス・自動常駐は設定しない</label><p class="hint">当日は顧客が画面を見て許可する有人接続だけにする。</p></div></div>
+            <div class="check-row"><input id="c42" type="checkbox"><div><label for="c42">Splashtop Remote Supportは有償の継続保守候補にした</label><p class="hint">安定運用や商用サポートが必要になったら検討する。</p></div></div>
+            <div class="check-row"><input id="c43" type="checkbox"><div><label for="c43">次回保守の連絡方法を決めた</label><p class="hint">電話、メール、チャットなど。</p></div></div>
           </div>
           <div class="memo-grid">
             <div class="memo-block"><label for="remoteMemo">リモート保守メモ</label><textarea id="remoteMemo"></textarea></div>
